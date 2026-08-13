@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #16181d;
+  border-bottom: 1px solid #23262d;
+}
+
+.topbar h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: 1px solid #2c3038;
+  background: transparent;
+  color: #b0b3ba;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tab.active {
+  background: #2f6bff;
+  border-color: #2f6bff;
+  color: #fff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.card {
+  background: #16181d;
+  border: 1px solid #23262d;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: #9aa0a8;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 9px 12px;
+  background: #0f1115;
+  border: 1px solid #2c3038;
+  border-radius: 8px;
+  color: #e6e6e6;
+  font-size: 14px;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background: #2f6bff;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+button[type="submit"]:hover {
+  background: #2457d6;
+}
+
+.status {
+  margin-left: 12px;
+  font-size: 13px;
+}
+
+.status.ok {
+  color: #34d399;
+}
+
+.status.err {
+  color: #f87171;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.grid .item {
+  background: #0f1115;
+  border: 1px solid #23262d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.grid .item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.grid .item .meta {
+  padding: 10px;
+  font-size: 12px;
+  color: #9aa0a8;
+}
+
+.grid .item .meta strong {
+  display: block;
+  color: #e6e6e6;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.grid .item button,
+.post button {
+  margin: 0 10px 10px;
+  padding: 6px 12px;
+  background: #3a1015;
+  border: 1px solid #7f1d1d;
+  color: #fca5a5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.grid .item button.edit,
+.post button.edit {
+  background: #12233f;
+  border: 1px solid #1e3a8a;
+  color: #93c5fd;
+}
+
+#blog-list .post {
+  background: #0f1115;
+  border: 1px solid #23262d;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.post h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.post .sub {
+  font-size: 12px;
+  color: #9aa0a8;
+  margin-bottom: 8px;
+}
+
+.post .desc {
+  font-size: 13px;
+  color: #c6c9ce;
+  margin-bottom: 10px;
+}
+
+.post .thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.post .thumbs img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #23262d;
+}
+
+.post button {
+  margin: 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #16181d;
+  border: 1px solid #23262d;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-box h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.modal-actions .secondary {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #2c3038;
+  color: #b0b3ba;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.thumbs-editable {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.thumb-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.thumb-edit img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #23262d;
+}
+
+.thumb-edit button {
+  margin: 0;
+  padding: 5px 10px;
+  background: #12233f;
+  border: 1px solid #1e3a8a;
+  color: #93c5fd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}

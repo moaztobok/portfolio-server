@@ -12,7 +12,7 @@ interface IBlog extends Document {
     images: IImage[];
     tags: [];
     category: 'Graphic Design' | 'Photography' | 'Web Development';
-    lastModified: Date;
+    lastModified: string;
 }
 const imageSchema = new Schema({
     url: { type: String, required: true },
@@ -34,6 +34,7 @@ const blogSchema: Schema = new Schema({
         required: true,
         enum: ['Graphic Design', 'Photography', 'Web Development']
     }, uploadDate: { type: Date, default: Date.now },
+    lastModified: { type: String },
 }, {
     timestamps: true
 });

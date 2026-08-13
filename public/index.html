@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Portfolio Dashboard</h1>
+    <nav>
+      <button class="tab active" data-tab="gallery">Gallery</button>
+      <button class="tab" data-tab="blog">Blog</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="gallery" class="panel active">
+      <div class="card">
+        <h2>Upload Images</h2>
+        <form id="gallery-upload-form">
+          <div class="field">
+            <label>Image type</label>
+            <select name="imageType">
+              <option value="artwork">Artwork</option>
+              <option value="photograph">Photograph</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Images</label>
+            <input type="file" name="files" accept="image/*" multiple required />
+          </div>
+          <button type="submit">Upload</button>
+          <span id="gallery-upload-status" class="status"></span>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Images</h2>
+        <div id="gallery-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="blog" class="panel">
+      <div class="card">
+        <h2>Create Post</h2>
+        <form id="blog-form">
+          <div class="field">
+            <label>Title</label>
+            <input type="text" name="title" required />
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <input type="text" name="description" required />
+          </div>
+          <div class="field">
+            <label>Author</label>
+            <input type="text" name="author" required />
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select name="category">
+              <option value="Graphic Design">Graphic Design</option>
+              <option value="Photography">Photography</option>
+              <option value="Web Development">Web Development</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Tags (comma separated)</label>
+            <input type="text" name="tags" placeholder="design, art, web" />
+          </div>
+          <div class="field">
+            <label>Content (HTML allowed)</label>
+            <textarea name="content" rows="6" required></textarea>
+          </div>
+          <div class="field">
+            <label>Images</label>
+            <input type="file" name="files" accept="image/*" multiple required />
+          </div>
+          <button type="submit">Publish</button>
+          <span id="blog-status" class="status"></span>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Posts</h2>
+        <div id="blog-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="image-modal" class="modal">
+    <div class="modal-box">
+      <h2>Edit Image</h2>
+      <form id="image-edit-form">
+        <input type="hidden" name="id" />
+        <div class="field">
+          <label>Title</label>
+          <input type="text" name="title" required />
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea name="description" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label>Image type</label>
+          <select name="imageType">
+            <option value="artwork">Artwork</option>
+            <option value="photograph">Photograph</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" class="secondary" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="blog-modal" class="modal">
+    <div class="modal-box">
+      <h2>Edit Post</h2>
+      <form id="blog-edit-form">
+        <input type="hidden" name="id" />
+        <div class="field">
+          <label>Title</label>
+          <input type="text" name="title" required />
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <input type="text" name="description" required />
+        </div>
+        <div class="field">
+          <label>Author</label>
+          <input type="text" name="author" required />
+        </div>
+        <div class="field">
+          <label>Category</label>
+          <select name="category">
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Photography">Photography</option>
+            <option value="Web Development">Web Development</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tags (comma separated)</label>
+          <input type="text" name="tags" placeholder="design, art, web" />
+        </div>
+        <div class="field">
+          <label>Content (HTML allowed)</label>
+          <textarea name="content" rows="8" required></textarea>
+        </div>
+        <div class="field">
+          <label>Existing images</label>
+          <div id="blog-images-existing" class="thumbs-editable"></div>
+        </div>
+        <div class="field">
+          <label>Add images (optional)</label>
+          <input type="file" name="files" accept="image/*" multiple />
+        </div>
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" class="secondary" data-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
